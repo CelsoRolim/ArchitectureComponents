@@ -1,0 +1,56 @@
+ext.deps = [:]
+
+def versions = [:]
+versions.support = "26.1.0"
+versions.constraint_layout = "1.0.2"
+versions.junit = "4.12"
+versions.atsl_runner = "1.0.1"
+versions.espresso = "3.0.1"
+versions.android_gradle_plugin = "3.0.1"
+versions.room = "1.1.0-alpha1"
+versions.lifecycle = "1.1.0"
+
+def deps = [:]
+
+def support = [:]
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+deps.support = support
+
+def atsl = [:]
+atsl.runner = "com.android.support.test:runner:$versions.atsl_runner"
+deps.atsl = atsl
+
+def espresso = [:]
+espresso.core = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+deps.espresso = espresso
+
+def room = [:]
+room.runtime = "android.arch.persistence.room:runtime:$versions.room"
+room.compiler = "android.arch.persistence.room:compiler:$versions.room"
+deps.room = room
+
+def lifecycle = [:]
+lifecycle.runtime = "android.arch.lifecycle:runtime:$versions.lifecycle"
+lifecycle.extensions = "android.arch.lifecycle:extensions:$versions.lifecycle"
+lifecycle.compiler = "android.arch.lifecycle:compiler:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+deps.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+deps.junit = "junit:junit:$versions.junit"
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 23
+build_versions.target_sdk = 26
+build_versions.build_tools = "26.0.2"
+
+ext.build_versions = build_versions
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+}
+
+ext.addRepos = this.&addRepos

@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        applicationId "com.samsung.architecturecompcodelab"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support libraries
+    implementation deps.support.app_compat
+
+    // Architecture components
+    compile deps.room.runtime
+    annotationProcessor deps.room.compiler
+    compile deps.lifecycle.runtime
+    compile deps.lifecycle.extensions
+    annotationProcessor deps.lifecycle.compiler
+
+    // Constraint and Junit
+    implementation deps.constraint_layout
+    testImplementation deps.junit
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation deps.atsl.runner
+
+    // Espresso UI Testing
+    androidTestImplementation deps.espresso.core
+}
