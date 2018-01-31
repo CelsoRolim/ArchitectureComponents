@@ -1,6 +1,6 @@
 package com.samsung.architecturecompcodelab.persistence;
 
-import com.samsung.architecturecompcodelab.persistence.models.WeatherEntry;
+import com.samsung.architecturecompcodelab.persistence.entities.WeatherEntry;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.samsung.architecturecompcodelab.persistence.models.WeatherEntry;
+import com.samsung.architecturecompcodelab.persistence.entities.WeatherEntry;
 
 import java.util.Date;
 import java.util.List;

@@ -4,9 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
 import android.arch.lifecycle.Observer;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.samsung.architecturecompcodelab.persistence.AppDatabase;
-import com.samsung.architecturecompcodelab.persistence.models.WeatherEntry;
+import com.samsung.architecturecompcodelab.persistence.entities.WeatherEntry;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,8 @@ import java.util.List;
  */
 
 public class DataRepository {
+
+    private static final String TAG = DataRepository.class.getSimpleName();
 
     private static DataRepository sInstance;
 
@@ -40,15 +43,22 @@ public class DataRepository {
             @Override
             public void onChanged(@Nullable List<WeatherEntry> weatherEntries) {
 
-                // TODO
-                // check why we need to have a "isDataBaseCreated" variable
-                // if (mDatabase.getDatabaseCreated().getValue() != null)
-                mObservableWeathers.postValue(weatherEntries);
+                Log.d(TAG, "Codelab DataRepository mObservableWeathers.onChanged");
+                Log.d(TAG, "Codelab weatherEntries: " + weatherEntries);
+
+                if (mDatabase.isDatabaseCreated().getValue() != null) {
+                    Log.d(TAG, "Codelab mDatabase.isDatabaseCreated created");
+                    mObservableWeathers.postValue(weatherEntries);
+                } else {
+                    Log.d(TAG, "Codelab mDatabase.isDatabaseCreated is not created");
+                }
             }
         });
     }
 
     public static DataRepository getInstance(final AppDatabase database) {
+
+        Log.d(TAG, "Codelab DataRepository getInstance");
 
         if (sInstance == null) {
 

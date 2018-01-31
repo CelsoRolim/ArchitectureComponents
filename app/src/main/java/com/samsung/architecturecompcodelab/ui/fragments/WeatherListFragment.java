@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.samsung.architecturecompcodelab.R;
-import com.samsung.architecturecompcodelab.persistence.models.WeatherEntry;
+import com.samsung.architecturecompcodelab.persistence.entities.WeatherEntry;
 import com.samsung.architecturecompcodelab.viewmodels.WeatherListViewModel;
 
 import java.util.List;
@@ -80,9 +80,9 @@ public class WeatherListFragment extends Fragment {
             @Override
             public void onChanged(@Nullable List<WeatherEntry> weatherEntries) {
 
-                Log.d(TAG, "onChanged weatherEntries: " + weatherEntries);
+                Log.d(TAG, "Codelab WeatherListFragment.onChanged weatherEntries: " + weatherEntries);
                 if (weatherEntries != null) {
-                    Log.d(TAG, "weatherEntries.size: " + weatherEntries.size());
+                    Log.d(TAG, "Codelab weatherEntries.size: " + weatherEntries.size());
                 }
             }
         });

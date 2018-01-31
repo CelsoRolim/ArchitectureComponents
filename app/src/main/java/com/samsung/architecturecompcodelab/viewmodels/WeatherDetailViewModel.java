@@ -5,7 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.samsung.architecturecompcodelab.persistence.models.WeatherEntry;
+import com.samsung.architecturecompcodelab.persistence.entities.WeatherEntry;
 
 /**
  * Created by sidia on 26/01/18.

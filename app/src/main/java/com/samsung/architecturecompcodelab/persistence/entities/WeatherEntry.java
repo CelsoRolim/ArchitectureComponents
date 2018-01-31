@@ -1,4 +1,4 @@
-package com.samsung.architecturecompcodelab.persistence.models;
+package com.samsung.architecturecompcodelab.persistence.entities;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
