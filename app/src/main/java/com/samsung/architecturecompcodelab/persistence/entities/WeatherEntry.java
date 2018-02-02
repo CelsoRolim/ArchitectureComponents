@@ -6,6 +6,8 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.samsung.architecturecompcodelab.model.Weather;
+
 import java.util.Date;
 
 /**
@@ -19,7 +21,7 @@ import java.util.Date;
  */
 
 @Entity(tableName = "weather", indices = {@Index(value = {"date"}, unique = true)})
-public class WeatherEntry {
+public class WeatherEntry implements Weather {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
